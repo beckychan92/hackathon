@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { textarea } from 'react-materialize';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 class Search extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class Search extends Component {
     };
     this.inputChange = this.inputChange.bind(this);
     this.termSearch = this.termSearch.bind(this)
-
+    // this.handleSearch = this.handleSearch.bind(this)
   }
   inputChange(e){
     this.setState({term: e.target.value});
@@ -28,16 +28,18 @@ class Search extends Component {
     })
     console.log('filter', filterData)
 
-    //pass child back to parent
+    return filterData;
     
   }
 
 
 
+
+
   render() {
     return (
-      <div class="input">
-        <textarea placeholder="Search..." onChange={this.inputChange} s={6} />
+      <div className="input">
+        <textarea placeholder="Search..." onChange={this.inputChange} termSearch={this.props.handleSearch} s={6} />
       </div>
     );
   }
