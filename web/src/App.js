@@ -39,15 +39,22 @@ class App extends Component {
   }
 
   handleSearch = array =>  {
-    console.log('inside handle ABCCCCCCCHSDFJKHSDFKJH')
-    return array
+    //data already filter
+    //need to re-render new page with provided data
+    console.log('data already filter, need to re-render new page with provided data', array)
+    if(array.length > 1) {
+      this.setState({meetupListData: array});
+    } else {
+      return (
+        <div>Loading...</div>
+      )
+    }
+    
   }
 
 
   render() {
     const { meetupListData } = this.state;
-
-
 
     return (
       <div className="App">
@@ -67,8 +74,8 @@ class App extends Component {
               <p>We are looking for volunteers for the month of May!</p>
               <p>Please feel free to visit our Facebook Page to learn more about us</p>
           </Card>
-
         </Col>
+
         <Col s={5} className='grid-example'>
         <Collection>
           {
@@ -86,8 +93,8 @@ class App extends Component {
             })
           }
         </Collection>
-        
         </Col>
+
       </Row>
       </div>
     );

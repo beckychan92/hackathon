@@ -11,9 +11,11 @@ class Search extends Component {
     };
     this.inputChange = this.inputChange.bind(this);
     this.termSearch = this.termSearch.bind(this)
-    // this.handleSearch = this.handleSearch.bind(this)
   }
   inputChange(e){
+    if(e.target.value === undefined) {
+      return (<div>Loading...</div>)
+    }
     this.setState({term: e.target.value});
     console.log('input change', this.state.term)
     return this.termSearch(this.state.term)
@@ -27,7 +29,7 @@ class Search extends Component {
       return meetUp.title.includes(term)
     })
     console.log('filter', filterData)
-
+    //have data here. 
     return filterData;
     
   }
@@ -39,7 +41,7 @@ class Search extends Component {
   render() {
     return (
       <div className="input">
-        <textarea placeholder="Search..." onChange={this.props.onSearch(this.inputChange).bind(this)} 
+        <textarea placeholder="Search..." onChange={this.props.onSearch(this.inputChange)} 
         s={6} />
       </div>
     );
