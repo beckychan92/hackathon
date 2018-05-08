@@ -39,7 +39,8 @@ class Search extends Component {
   render() {
     return (
       <div className="input">
-        <textarea placeholder="Search..." onChange={this.inputChange} termSearch={this.props.handleSearch} s={6} />
+        <textarea placeholder="Search..." onChange={this.props.onSearch(this.inputChange).bind(this)} 
+        s={6} />
       </div>
     );
   }

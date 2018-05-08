@@ -55,8 +55,7 @@ class App extends Component {
           <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
           <NavItem href='get-started.html'><Icon>more_vert</Icon></NavItem>
         </Navbar>
-
-      <Search meetupListData={this.state.meetupListData} onChange={this.handleSearch}/>
+      <Search meetupListData={this.state.meetupListData} onSearch={this.handleSearch}/>
       
       
       <Row>
