@@ -18,7 +18,8 @@ class Search extends Component {
     }
     this.setState({term: e.target.value});
     console.log('input change', this.state.term)
-    return this.termSearch(this.state.term)
+
+    this.termSearch(this.state.term)
   }
 
   termSearch(term) {

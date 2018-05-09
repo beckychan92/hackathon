@@ -43,6 +43,7 @@ class App extends Component {
     //need to re-render new page with provided data
     console.log('data already filter, need to re-render new page with provided data', array)
     if(array.length > 1) {
+      
       this.setState({meetupListData: array});
     } else {
       return (
