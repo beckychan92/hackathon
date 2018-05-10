@@ -38,13 +38,27 @@ class App extends Component {
   }
 
   handleSearch(e) {
+    var { meetupListData } = this.state;
     console.log('inside app ', e)
+    e = e.toLowerCase();
+
+    var filterData = meetupListData.filter(meetup => {
+      
+      if(meetup.title.toLowerCase().includes(e)){
+        return meetup
+      }
+    })
+    console.log(filterData)
+
+    return filterData
+
+
   }
 
 
 
   render() {
-    const { meetupListData } = this.state;
+    
 
     return (
       <div className="App">
@@ -70,7 +84,7 @@ class App extends Component {
         </Col>
 
         <Col s={5} className='grid-example'>
-        <Collection>
+        {/* <Collection>
           {
             meetupListData.map(meetup => {
               return (
@@ -85,7 +99,7 @@ class App extends Component {
                
             })
           }
-        </Collection>
+        </Collection> */}
         </Col>
 
       </Row>

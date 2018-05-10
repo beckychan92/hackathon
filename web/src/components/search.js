@@ -10,7 +10,6 @@ class Search extends Component {
       term: ''
     };
     this.inputChange = this.inputChange.bind(this);
-    // this.termSearch = this.termSearch.bind(this)
   }
   inputChange(e) {
     this.setState({
@@ -29,7 +28,6 @@ class Search extends Component {
         <textarea 
           placeholder="Search..." 
           onChange={this.inputChange}
-
         s={6} />
       </div>
     );
