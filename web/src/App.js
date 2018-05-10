@@ -34,24 +34,13 @@ class App extends Component {
         }
       ]
     }
-
-    
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
-  handleSearch = array =>  {
-    //data already filter
-    //need to re-render new page with provided data
-    console.log('data already filter, need to re-render new page with provided data', array)
-    if(array.length > 1) {
-      
-      this.setState({meetupListData: array});
-    } else {
-      return (
-        <div>Loading...</div>
-      )
-    }
-    
+  handleSearch(e) {
+    console.log('inside app ', e)
   }
+
 
 
   render() {
@@ -63,7 +52,10 @@ class App extends Component {
           <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
           <NavItem href='get-started.html'><Icon>more_vert</Icon></NavItem>
         </Navbar>
-      <Search meetupListData={this.state.meetupListData} onSearch={this.handleSearch}/>
+      <Search 
+        meetupListData={this.state.meetupListData} 
+        onSearch={this.handleSearch.bind(this)}
+      />
       
       
       <Row>
