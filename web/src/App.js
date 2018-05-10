@@ -50,7 +50,9 @@ class App extends Component {
     })
     console.log(filterData)
 
-    return filterData
+    this.setState({
+      meetupListData: filterData
+    })
 
 
   }
@@ -58,7 +60,7 @@ class App extends Component {
 
 
   render() {
-    
+    var { meetupListData } = this.state;
 
     return (
       <div className="App">
@@ -84,7 +86,7 @@ class App extends Component {
         </Col>
 
         <Col s={5} className='grid-example'>
-        {/* <Collection>
+        <Collection>
           {
             meetupListData.map(meetup => {
               return (
@@ -99,7 +101,7 @@ class App extends Component {
                
             })
           }
-        </Collection> */}
+        </Collection>
         </Col>
 
       </Row>
