@@ -37,24 +37,34 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
 
+  //problem.  filter list reduce and while typing but 
+  // when backspace, the set of data disappears 
+
+  //problem we overwrite the state 
+
   handleSearch(e) {
-    var { meetupListData } = this.state;
+    
+    const meetupListData = this.state.meetupListData;
+    
     console.log('inside app ', e)
     e = e.toLowerCase();
+    
+
+
 
     var filterData = meetupListData.filter(meetup => {
-      
       if(meetup.title.toLowerCase().includes(e)){
         return meetup
       }
     })
+
     console.log(filterData)
 
+    
+  
     this.setState({
       meetupListData: filterData
     })
-
-
   }
 
 
@@ -79,8 +89,7 @@ class App extends Component {
           <Card className='card large'
             header={<CardTitle image='https://s3.ap-northeast-2.amazonaws.com/festa-temp/saturday-azure-live-1805-images/saturday-azure-live-1805-cover.png'></CardTitle>}
 
-            actions={[<a href='https://www.google.com'>Sign up!</a>]}>
-              <p>We are looking for volunteers for the month of May!</p>
+            actions={[<a href="https://www.facebook.com/askHelpies">Facebook Page</a>]}>
               <p>Please feel free to visit our Facebook Page to learn more about us</p>
           </Card>
         </Col>
